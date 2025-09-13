@@ -24,9 +24,16 @@ public class PlayerController : NetworkBehaviour
     }
 
     private void Move(float horizontalInput, float verticalInput)
-    { 
+    {
         if (verticalInput != 0)
-            transform.position += transform.forward * verticalInput * _speed * Runner.DeltaTime;
+        {
+            //transform.position += transform.forward * verticalInput * _speed * Runner.DeltaTime;
+            _netRB.Rigidbody.velocity += transform.forward * verticalInput * _speed * Runner.DeltaTime;
+            if (_netRB.Rigidbody.velocity.sqrMagnitude > _speed * _speed)
+                _netRB.Rigidbody.velocity = _netRB.Rigidbody.velocity.normalized * _speed;
+            
+            _netRB.Rigidbody.AddForce(Vector3.up * verticalInput * _speed * 10, ForceMode.Impulse);
+        }
         
         if(horizontalInput != 0)
             transform.Rotate(Vector3.up, _turnSpeed * horizontalInput * Runner.DeltaTime);

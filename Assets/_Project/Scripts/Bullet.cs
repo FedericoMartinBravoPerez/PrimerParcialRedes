@@ -1,3 +1,4 @@
+using System;
 using Fusion;
 using Fusion.Addons.Physics;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class Bullet : NetworkBehaviour
     [SerializeField] private NetworkRigidbody3D _netRb;
     [SerializeField] float _force = 100f;
     [SerializeField] private float _lifeTime = 2f;
-    [SerializeField] private int _dmg = 10;
+    [SerializeField] private int _dmg = 1;
         
     private TickTimer _timer;
 
@@ -34,12 +35,15 @@ public class Bullet : NetworkBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (!HasStateAuthority) return;
-            
-        Runner.Despawn(Object);
-    }
 
+        if (other.gameObject.TryGetComponent(out HealthComponent health))
+        {
+            health.RPC_TakeDamage(_dmg); 
+            Runner.Despawn(Object);
+        }
+    }
     
 }

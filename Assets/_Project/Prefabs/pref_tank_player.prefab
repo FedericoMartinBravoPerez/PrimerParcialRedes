@@ -327,11 +327,12 @@ GameObject:
   - component: {fileID: 2033965687491742433}
   - component: {fileID: 4671125619246507209}
   - component: {fileID: 5362170304867497559}
+  - component: {fileID: -4390604683210457144}
   - component: {fileID: 6687473867896787902}
   - component: {fileID: -6608239268768659060}
   - component: {fileID: -3387794478488433403}
   - component: {fileID: 3234629886071718690}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pref_tank_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,6 +392,20 @@ MonoBehaviour:
   _bulletPrefab:
     RawGuidValue: 441dad71cfb1a5b4c82b1245e89ba4b8
   _shootPoint: {fileID: 9104164542884220447}
+--- !u!114 &-4390604683210457144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5227519347156623489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e65b13bae8f634b9befe6f57912553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+  _currentHealth: 0
 --- !u!114 &6687473867896787902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +438,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 5362170304867497559}
+  - {fileID: -4390604683210457144}
   - {fileID: 6687473867896787902}
   - {fileID: 3234629886071718690}
   ForceRemoteRenderTimeframe: 0
