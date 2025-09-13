@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetFollow : MonoBehaviour
+
+namespace DoNotUse.Example
 {
-    private Transform _target;
-
-    public void SetTarget(Transform target)
+    public class TargetFollow : MonoBehaviour
     {
-        _target = target;
-    }
+        private Transform _target;
 
-    private void LateUpdate()
-    {
-        if (!_target) return;
-        transform.position = new Vector3(_target.position.x, _target.position.y, transform.position.z);
+        public void SetTarget(Transform target)
+        {
+            _target = target;
+        }
+
+        private void LateUpdate()
+        {
+            if (!_target) return;
+            transform.position = new Vector3(_target.position.x, _target.position.y, transform.position.z);
+        }
     }
 }
