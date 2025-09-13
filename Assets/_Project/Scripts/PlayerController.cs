@@ -27,12 +27,12 @@ public class PlayerController : NetworkBehaviour
     {
         if (verticalInput != 0)
         {
-            //transform.position += transform.forward * verticalInput * _speed * Runner.DeltaTime;
-            _netRB.Rigidbody.velocity += transform.forward * verticalInput * _speed * Runner.DeltaTime;
-            if (_netRB.Rigidbody.velocity.sqrMagnitude > _speed * _speed)
-                _netRB.Rigidbody.velocity = _netRB.Rigidbody.velocity.normalized * _speed;
-            
-            _netRB.Rigidbody.AddForce(Vector3.up * verticalInput * _speed * 10, ForceMode.Impulse);
+            Vector3 forwardVel = transform.forward * verticalInput * _speed;
+            _netRB.Rigidbody.velocity = forwardVel;
+        }
+        else
+        {
+            _netRB.Rigidbody.velocity = Vector3.zero;
         }
         
         if(horizontalInput != 0)

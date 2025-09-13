@@ -9,6 +9,8 @@ public class Bullet : NetworkBehaviour
     [SerializeField] float _force = 100f;
     [SerializeField] private float _lifeTime = 2f;
     [SerializeField] private int _dmg = 1;
+    [SerializeField] private float _cooldown = 1f;
+    
         
     private TickTimer _timer;
 
@@ -28,7 +30,8 @@ public class Bullet : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-            
+        
+        
         if (_timer.Expired(Runner))
         {
             Runner.Despawn(Object);
