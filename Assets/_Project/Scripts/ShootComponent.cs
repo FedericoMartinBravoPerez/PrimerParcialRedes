@@ -7,13 +7,23 @@ public class ShootComponent : NetworkBehaviour
 
     [SerializeField] private NetworkPrefabRef _bulletPrefab;
     [SerializeField] private Transform _shootPoint;
+    
+    private bool _isShotPressed = false;
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        _isShotPressed |= Input.GetKeyDown(KeyCode.E);
+    }
+
+    public override void FixedUpdateNetwork()
+    {
+        if (_isShotPressed)
         {
             Shoot();
+            _isShotPressed = false;       
         }
     }
+
     void Shoot()
     {
         Runner.Spawn(_bulletPrefab, _shootPoint.position, _shootPoint.rotation);
