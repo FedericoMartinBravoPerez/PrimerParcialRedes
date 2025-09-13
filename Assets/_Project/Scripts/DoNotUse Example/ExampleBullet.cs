@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace DoNotUse.Example
 {
-    public class Bullet : NetworkBehaviour
+    public class ExampleBullet : NetworkBehaviour
     {
         [SerializeField] private NetworkRigidbody3D _netRb;
         [SerializeField] float _force = 100f;
