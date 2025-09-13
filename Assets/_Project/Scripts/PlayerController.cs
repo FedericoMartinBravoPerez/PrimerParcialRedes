@@ -11,9 +11,11 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _turnSpeed;
     public float CurrentVelocity => _netRB.Rigidbody.velocity.magnitude;
+    public bool IsMoving => _isMoving;
 
     private NetworkRigidbody3D _netRB;
-
+    private bool _isMoving;
+    
     public override void Spawned()
     {
         _netRB = GetComponent<NetworkRigidbody3D>();
@@ -26,6 +28,9 @@ public class PlayerController : NetworkBehaviour
 
     private void Move(float horizontalInput, float verticalInput)
     {
+        _isMoving = horizontalInput + verticalInput > 0;
+        
+        
         if (verticalInput != 0)
         {
             Vector3 forwardVel = transform.forward * verticalInput * _speed;

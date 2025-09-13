@@ -10,7 +10,6 @@ public class ShootComponent : NetworkBehaviour
     [SerializeField] private float _cooldown = 1f;
 
     private float _cooldownTimer = 0f;
-    
     private bool _isShotPressed = false;
 
     private void Update()
