@@ -10,6 +10,7 @@ public class PlayerController : NetworkBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _turnSpeed;
+    public float CurrentVelocity => _netRB.Rigidbody.velocity.magnitude;
 
     private NetworkRigidbody3D _netRB;
 
