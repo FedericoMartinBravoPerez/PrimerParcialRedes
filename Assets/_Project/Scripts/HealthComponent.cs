@@ -31,8 +31,8 @@ public class HealthComponent : NetworkBehaviour
     private void Death()
     {
         _onDeath.Invoke();
-        GetComponent<CharacterController>().enabled = false;
-        Invoke(nameof(Despawn), 1f);
+        GetComponent<PlayerController>().enabled = false;
+        Invoke(nameof(Despawn), 3f);
     }
     
     private void Despawn() => Runner.Despawn(Object);
