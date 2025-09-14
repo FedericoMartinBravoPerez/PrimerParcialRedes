@@ -12,17 +12,21 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float _turnSpeed;
     public float CurrentVelocity => _netRB.Rigidbody.velocity.magnitude;
     public bool IsMoving => _isMoving;
-
+    //private bool _canMove = false;
+    
     private NetworkRigidbody3D _netRB;
     private bool _isMoving;
     
     public override void Spawned()
     {
         _netRB = GetComponent<NetworkRigidbody3D>();
+                    
     }
 
     public override void FixedUpdateNetwork()
     {
+        //if (!_canMove) return;
+        
         Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 

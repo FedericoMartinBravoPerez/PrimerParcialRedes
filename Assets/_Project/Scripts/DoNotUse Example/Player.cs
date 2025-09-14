@@ -20,6 +20,7 @@ namespace DoNotUse.Example
         private NetworkRigidbody3D _netRb;
 
 
+
         public override void Spawned()
         {
             _currentLife = _initialLife;
@@ -35,6 +36,7 @@ namespace DoNotUse.Example
             }
 
             _netRb = GetComponent<NetworkRigidbody3D>();
+
         }
 
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
@@ -53,6 +55,7 @@ namespace DoNotUse.Example
         }
         private void Update()
         {
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _isJumpPressed = true;

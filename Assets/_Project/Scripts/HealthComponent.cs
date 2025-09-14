@@ -27,6 +27,12 @@ public class HealthComponent : NetworkBehaviour
             _onHit.Invoke();
         }
     }
+    
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_Heal(int amount)
+    {
+        _currentHealth = Mathf.Clamp(_currentHealth + amount, 1, _maxHealth);
+    }
 
     private void Death()
     {
