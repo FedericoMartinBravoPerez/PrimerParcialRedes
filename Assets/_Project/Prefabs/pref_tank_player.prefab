@@ -394,6 +394,7 @@ MonoBehaviour:
   _bulletPrefab:
     RawGuidValue: 441dad71cfb1a5b4c82b1245e89ba4b8
   _shootPoint: {fileID: 9104164542884220447}
+  _cooldown: 1
 --- !u!114 &-4390604683210457144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +409,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _currentHealth: 0
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6687473867896787902
 MonoBehaviour:
   m_ObjectHideFlags: 0

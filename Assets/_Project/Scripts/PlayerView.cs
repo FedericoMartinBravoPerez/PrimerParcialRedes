@@ -15,6 +15,6 @@ public class PlayerView : MonoBehaviour
 
     public void Update()
     {
-        animator.SetBool("isMoving", controller.CurrentVelocity != 0);
+        animator.SetBool("isMoving", controller.IsMoving);
     }
 }
