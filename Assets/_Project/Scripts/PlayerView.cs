@@ -17,4 +17,14 @@ public class PlayerView : MonoBehaviour
     {
         animator.SetBool("isMoving", controller.IsMoving);
     }
+
+    public void SetHitTrigger()
+    {
+        animator.SetTrigger("isHit");
+    }
+
+    public void SetDeathTrigger()
+    {
+        animator.SetTrigger("isDeath");
+    }
 }
