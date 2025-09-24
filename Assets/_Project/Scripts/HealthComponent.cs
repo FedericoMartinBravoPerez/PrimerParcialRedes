@@ -36,10 +36,12 @@ public class HealthComponent : NetworkBehaviour
 
     private void Death()
     {
+        GameManager.Instance.RPC_PlayerDefeated(Object.StateAuthority);
         _onDeath.Invoke();
         GetComponent<PlayerController>().enabled = false;
         Invoke(nameof(Despawn), 3f);
     }
+
     
     private void Despawn() => Runner.Despawn(Object);
 }

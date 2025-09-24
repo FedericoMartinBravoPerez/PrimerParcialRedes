@@ -125,8 +125,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7893877843297679167}
   - component: {fileID: 7359367651795536054}
-  - component: {fileID: 5678071215874052710}
   - component: {fileID: 4749344306011039591}
+  - component: {fileID: 5678071215874052710}
+  - component: {fileID: 1139694099878444319}
   m_Layer: 0
   m_Name: pref_RapidFirePickUp
   m_TagString: Untagged
@@ -171,6 +172,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4749344306011039591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179425582218473169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c177d7ff7c484b21956cdfef5c9aba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5678071215874052710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +202,9 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 4749344306011039591}
+  - {fileID: 1139694099878444319}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &4749344306011039591
+--- !u!114 &1139694099878444319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,6 +213,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9179425582218473169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c177d7ff7c484b21956cdfef5c9aba52, type: 3}
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0

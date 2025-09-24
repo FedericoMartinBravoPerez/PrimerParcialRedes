@@ -12,7 +12,6 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float _turnSpeed;
     public float CurrentVelocity => _netRB.Rigidbody.velocity.magnitude;
     public bool IsMoving => _isMoving;
-    //private bool _canMove = false;
     
     private NetworkRigidbody3D _netRB;
     private bool _isMoving;
@@ -20,7 +19,12 @@ public class PlayerController : NetworkBehaviour
     public override void Spawned()
     {
         _netRB = GetComponent<NetworkRigidbody3D>();
-                    
+        GameManager.Instance.SubscribeToClientsInGame(Object.StateAuthority);
+
+        if (HasStateAuthority)
+        {
+            
+        }
     }
 
     public override void FixedUpdateNetwork()

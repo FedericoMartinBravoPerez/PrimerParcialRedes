@@ -1,14 +1,59 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Fusion;
 using UnityEngine;
 
 
 public class GameManager : NetworkBehaviour
 {
+	[SerializeField] private GameObject _winImage;
+	[SerializeField] private GameObject _defeatImage;    
+    public static GameManager Instance { get; private set; }
+
+
+	private List<PlayerRef> _clientsInGame;
+
+    private void Awake()
+    {
+        Instance = this;
+        _clientsInGame = new List<PlayerRef>();
+    }
+
+    public void SubscribeToClientsInGame(PlayerRef client)
+    {
+        
+        if (_clientsInGame.Contains(client)) return;
+        _clientsInGame.Add(client);
+    }
+
+    private void UnsubscribeToClientsInGame(PlayerRef client)
+    {
+        _clientsInGame.Remove(client);
+    }
     
+    [Rpc]
+    public void RPC_PlayerDefeated(PlayerRef client)
+    {
+        if (client == Runner.LocalPlayer)
+        {
+            _defeatImage.SetActive(true);
+            _winImage.SetActive(false);
+        }
+        UnsubscribeToClientsInGame(client);
+
+
+        if (_clientsInGame.Count == 1 && HasStateAuthority)
+        {
+            RPC_WinEvent(_clientsInGame[0]);
+        }
+    }
+
+    [Rpc]
+    private void RPC_WinEvent([RpcTarget] PlayerRef client)
+    {
+        _winImage.SetActive(true);
+        _defeatImage.SetActive(false);
+    }
 
 
 
