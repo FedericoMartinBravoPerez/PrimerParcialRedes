@@ -8,6 +8,11 @@ using UnityEngine;
 
 public class GameManager : NetworkBehaviour
 {
+    
+
+
+
+    /*
     [SerializeField] private int _minPlayersToStart = 2;
     public static GameManager Instance { get; private set; }
 
@@ -71,4 +76,5 @@ public class GameManager : NetworkBehaviour
         OnGameStart += () => Debug.Log("OnGameStart");
         OnGameEnd += () => Debug.Log("OnGameEnd");
     }
+    */
 }
