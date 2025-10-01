@@ -24,7 +24,7 @@ public class PlayerView : NetworkBehaviour
     }   
 
     public void SetHitTrigger()
-    {
+    { 
         _netAnimator.SetTrigger("isHit"); 
     }
 
