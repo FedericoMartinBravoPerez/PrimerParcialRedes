@@ -39,8 +39,8 @@ public class HealthComponent : NetworkBehaviour
         GameManager.Instance.RPC_PlayerDefeated(Object.StateAuthority);
         _onDeath.Invoke();
         GetComponent<PlayerController>().enabled = false;
-        GetComponent<Collider>().enabled = false;
         Invoke(nameof(Despawn), 3f);
+        enabled = false;
     }
 
     
