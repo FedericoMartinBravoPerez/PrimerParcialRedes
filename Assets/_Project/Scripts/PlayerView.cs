@@ -21,12 +21,11 @@ public class PlayerView : NetworkBehaviour
     public override void FixedUpdateNetwork()
     {
         _netAnimator.Animator.SetBool("isMoving", controller.IsMoving);
-    }   //ta rari
+    }   
 
     public void SetHitTrigger()
     {
-        Debug.Log("is hit");
-        _netAnimator.Animator.SetTrigger("isHit"); 
+        _netAnimator.SetTrigger("isHit"); 
     }
 
     public void SetDeathTrigger()
