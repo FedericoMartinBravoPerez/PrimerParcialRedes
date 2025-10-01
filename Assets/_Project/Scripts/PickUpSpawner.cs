@@ -25,9 +25,6 @@ public class PickUpSpawner : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-        if (!HasStateAuthority)
-            return;
-
         if (!_isRunning)
             return;
 
