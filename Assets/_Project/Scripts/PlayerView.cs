@@ -18,21 +18,19 @@ public class PlayerView : NetworkBehaviour
         _netAnimator = GetComponentInChildren<NetworkMecanimAnimator>();
     }
 
-    public void Update()
+    public override void FixedUpdateNetwork()
     {
-        //Debug.Log("is moving");
         _netAnimator.Animator.SetBool("isMoving", controller.IsMoving);
-    }   //solo el cliente lo ve
+    }   //ta rari
 
     public void SetHitTrigger()
     {
         Debug.Log("is hit");
-        _netAnimator.SetTrigger("isHit"); //este no esta siendo registrado
+        _netAnimator.Animator.SetTrigger("isHit"); 
     }
 
     public void SetDeathTrigger()
     {
-        //Debug.Log("is dead");
-        _netAnimator.SetTrigger("isDeath"); //este anda en ambos lados
+        _netAnimator.SetTrigger("isDeath"); 
     }
 }
