@@ -448,7 +448,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7152378964458523139}
         m_TargetAssemblyTypeName: PlayerView, Assembly-CSharp
-        m_MethodName: setStrigger
+        m_MethodName: SetHitTrigger
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
