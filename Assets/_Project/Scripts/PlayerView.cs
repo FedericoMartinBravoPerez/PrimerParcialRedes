@@ -1,30 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fusion;
 
 public class PlayerView : MonoBehaviour
 {
+
     [SerializeField] Animator animator;
     [SerializeField] PlayerController controller;
+    [SerializeField] NetworkMecanimAnimator _netAnimator;
 
     public void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        //animator = GetComponentInChildren<Animator>();
         controller = GetComponent<PlayerController>();
+        _netAnimator = GetComponentInChildren<NetworkMecanimAnimator>();
+
     }
 
     public void Update()
     {
-        animator.SetBool("isMoving", controller.IsMoving);
+        _netAnimator.Animator.SetBool("isMoving", controller.IsMoving);
     }
 
     public void SetHitTrigger()
     {
-        animator.SetTrigger("isHit");
+        _netAnimator.SetTrigger("isHit");
     }
 
     public void SetDeathTrigger()
     {
-        animator.SetTrigger("isDeath");
+        _netAnimator.SetTrigger("isDeath");
     }
 }

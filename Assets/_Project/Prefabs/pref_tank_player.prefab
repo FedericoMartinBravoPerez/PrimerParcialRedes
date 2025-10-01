@@ -207,6 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327511435760049686}
   - component: {fileID: 2341658176566541234}
+  - component: {fileID: 8160187411901121683}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -255,6 +256,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8160187411901121683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628443602033634842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 506319458, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 2341658176566541234}
+  ApplyTiming: 2
+  SyncSettings: 79
+  StateHashes: 00000000e386dff00845570d7ed9db726448e198ba5ffeec1f1b19533479b5b307ca9084
+  TriggerHashes: 00000000e05454b610a450ee
+  TotalWords: 1
 --- !u!1 &4687057702832979087
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +493,7 @@ MonoBehaviour:
   - {fileID: -4390604683210457144}
   - {fileID: 6687473867896787902}
   - {fileID: 3234629886071718690}
+  - {fileID: 8160187411901121683}
   ForceRemoteRenderTimeframe: 0
 --- !u!136 &4409262256994628819
 CapsuleCollider:

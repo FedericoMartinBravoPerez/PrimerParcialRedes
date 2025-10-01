@@ -402,7 +402,7 @@ MonoBehaviour:
   _spawnPoints:
   - {fileID: 1842264118}
   - {fileID: 2100583868}
-  _playerToStart: 2
+  _playerToStart: 1
 --- !u!1001 &220931222
 PrefabInstance:
   m_ObjectHideFlags: 0

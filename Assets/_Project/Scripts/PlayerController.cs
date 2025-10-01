@@ -15,7 +15,8 @@ public class PlayerController : NetworkBehaviour
     
     private NetworkRigidbody3D _netRB;
     private bool _isMoving;
-    
+
+
     public override void Spawned()
     {
         _netRB = GetComponent<NetworkRigidbody3D>();
@@ -29,14 +30,12 @@ public class PlayerController : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-        //if (!_canMove) return;
-        
         Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
     private void Move(float horizontalInput, float verticalInput)
     {
-        _isMoving = horizontalInput != 0 && verticalInput != 0;
+        _isMoving = horizontalInput != 0 || verticalInput != 0;
         
         
         if (verticalInput != 0)
@@ -51,27 +50,5 @@ public class PlayerController : NetworkBehaviour
         
         if(horizontalInput != 0)
             transform.Rotate(Vector3.up, _turnSpeed * horizontalInput * Runner.DeltaTime);
-        
-        //  if (Input.GetKey(KeyCode.W))
-        //  {
-        //      //_netRB.Rigidbody.position += transform.forward * (_speed * Runner.DeltaTime);
-        //      transform.position += transform.forward * _speed * Time.deltaTime;
-        //  }
-        //
-        //  if (Input.GetKey(KeyCode.S))
-        //  {
-        //      //_netRB.Rigidbody.position -= transform.forward * (_speed * 0.5f * Runner.DeltaTime);
-        //      transform.position -= transform.forward * _speed * Time.deltaTime;
-        //  }
-        //
-        //  if (Input.GetKey(KeyCode.A))
-        //  {
-        //      transform.Rotate(Vector3.up, -_turnSpeed * Time.deltaTime); 
-        //  }
-        //
-        //  if (Input.GetKey(KeyCode.D))
-        //  {
-        //      transform.Rotate(Vector3.up, _turnSpeed * Time.deltaTime);
-        // }
     }
 }

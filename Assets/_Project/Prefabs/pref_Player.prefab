@@ -73,6 +73,8 @@ MonoBehaviour:
     RawGuidValue: d30bad335f7cd364bb08b078df075761
   _speed: 3
   _shootSpawner: {fileID: 257986350039432301}
+  _initialLife: 0
+  _currentLife: 0
 --- !u!54 &90028578650351897
 Rigidbody:
   m_ObjectHideFlags: 0
