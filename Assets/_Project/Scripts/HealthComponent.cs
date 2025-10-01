@@ -47,6 +47,7 @@ public class HealthComponent : NetworkBehaviour
         GameManager.Instance.RPC_PlayerDefeated(Object.StateAuthority);
         _onDeath.Invoke();
         GetComponent<PlayerController>().enabled = false;
+        GetComponent<ShootComponent>().enabled = false;
         Invoke(nameof(Despawn), 3f);
     }
 
