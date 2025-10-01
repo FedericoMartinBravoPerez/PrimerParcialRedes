@@ -27,7 +27,7 @@ public class PlayerView : NetworkBehaviour
     public void SetHitTrigger()
     {
         Debug.Log("is hit");
-        _netAnimator.Animator.SetTrigger("isHit"); //este no esta siendo registrado
+        _netAnimator.SetTrigger("isHit"); //este no esta siendo registrado
     }
 
     public void SetDeathTrigger()
