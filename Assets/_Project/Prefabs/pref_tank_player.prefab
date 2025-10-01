@@ -270,10 +270,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 2341658176566541234}
   ApplyTiming: 2
-  SyncSettings: 79
+  SyncSettings: 127
   StateHashes: 00000000e386dff00845570d7ed9db726448e198ba5ffeec1f1b19533479b5b307ca9084
   TriggerHashes: 00000000e05454b610a450ee
-  TotalWords: 1
+  TotalWords: 3
 --- !u!1 &4687057702832979087
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +493,7 @@ MonoBehaviour:
   - {fileID: -4390604683210457144}
   - {fileID: 6687473867896787902}
   - {fileID: 3234629886071718690}
+  - {fileID: 7152378964458523139}
   - {fileID: 8160187411901121683}
   ForceRemoteRenderTimeframe: 0
 --- !u!136 &4409262256994628819
@@ -580,8 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e6808633277a44facf1cd647593aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   controller: {fileID: 0}
+  _netAnimator: {fileID: 0}
 --- !u!1 &5513344164428444494
 GameObject:
   m_ObjectHideFlags: 0

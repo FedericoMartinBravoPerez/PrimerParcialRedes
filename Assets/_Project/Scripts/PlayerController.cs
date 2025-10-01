@@ -35,8 +35,8 @@ public class PlayerController : NetworkBehaviour
 
     private void Move(float horizontalInput, float verticalInput)
     {
+
         _isMoving = horizontalInput != 0 || verticalInput != 0;
-        
         
         if (verticalInput != 0)
         {
