@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class HealthComponent : NetworkBehaviour
 {
@@ -11,6 +12,8 @@ public class HealthComponent : NetworkBehaviour
     
     [SerializeField] private UnityEvent _onDeath;
     [SerializeField] private UnityEvent _onHit;
+
+    private bool _isDead = false;
     public override void Spawned()
     {
         _currentHealth = _maxHealth;
@@ -21,7 +24,9 @@ public class HealthComponent : NetworkBehaviour
     {
         _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
         if (_currentHealth == 0)
+        {
             Death();
+        }
         else
         {
             _onHit.Invoke();
@@ -36,11 +41,13 @@ public class HealthComponent : NetworkBehaviour
 
     private void Death()
     {
+        if (_isDead) return;
+        
+        _isDead = true;
         GameManager.Instance.RPC_PlayerDefeated(Object.StateAuthority);
         _onDeath.Invoke();
         GetComponent<PlayerController>().enabled = false;
         Invoke(nameof(Despawn), 3f);
-        enabled = false;
     }
 
     
