@@ -10,16 +10,20 @@ public class HealthComponent : NetworkBehaviour
     [SerializeField] private int _maxHealth = 3;
     [SerializeField] private int _currentHealth;
     
-    [SerializeField] private UnityEvent _onDeath;
-    [SerializeField] private UnityEvent _onHit;
+    public int Current => _currentHealth;
+    
+    [SerializeField] public UnityEvent OnDeath;
+    [SerializeField] public UnityEvent OnHit;
+    [SerializeField] public UnityEvent OnHeal;
 
     private bool _isDead = false;
     public override void Spawned()
     {
         _currentHealth = _maxHealth;
+        _isDead = false;
     }
     
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_TakeDamage(int damage)
     {
         _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
@@ -29,14 +33,15 @@ public class HealthComponent : NetworkBehaviour
         }
         else
         {
-            _onHit.Invoke();
+            OnHit.Invoke();
         }
     }
     
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_Heal(int amount)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + amount, 1, _maxHealth);
+        OnHeal?.Invoke();
     }
 
     private void Death()
@@ -45,7 +50,7 @@ public class HealthComponent : NetworkBehaviour
         
         _isDead = true;
         GameManager.Instance.RPC_PlayerDefeated(Object.StateAuthority);
-        _onDeath.Invoke();
+        OnDeath.Invoke();
         GetComponent<PlayerController>().enabled = false;
         GetComponent<ShootComponent>().enabled = false;
         Invoke(nameof(Despawn), 3f);
